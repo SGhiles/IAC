@@ -8,6 +8,15 @@ SUCCESS_COLOR := \033[32;1m
 WARNING_COLOR := \033[33;1m
 RESET_COLOR := \033[m
 
+.PHONY: check-tools
+check-tools:
+	@for software in pre-commit terraform ansible gh gitaws; do
+			command -v "$$software" >/dev/null 2>&1 ||\
+				{ echo -e "$(ERROR_COLOR)software $$software does not exist$(RESET_COLOR)"; \
+			exit 1; }
+	done
+
+
 tf.init: ## dry-run terraform init
 	@echo "Terraform init"
 
