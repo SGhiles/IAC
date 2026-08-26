@@ -1,13 +1,13 @@
-REPO_NAME := $(shell basename $$(git rev-parse --show-toplevel))
+REPO_NAME=$(shell basename $$(git rev-parse --show-toplevel))
 VISIBILITY ?= private
-.PHONY: gh.create
+
+.PHONY: gh.create gh.var gh.vlist
 gh.create:
-	@gh repocreate $(REPO_NAME) --$(VISIBILITY) --source=. --remote=origin --push
-
+	@gh repo create $(REPO_NAME) \
+	--$(VISIBILITY) --source=.\
+	--push
 gh.var:
-	@gh variable set $(VAR_KEY) --body "$(VAR_VALUE)"
-
+	@gh variable set $(VAR_KEY) \
+	--body "$(VAR_VALUE)"
 gh.vlist:
 	@gh variable list
-
-

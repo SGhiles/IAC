@@ -8,6 +8,7 @@
       - config
       - donnees
       - journaux
+
   tasks:
     - name: Creer l'arborescence
       ansible.builtin.file:
@@ -15,6 +16,7 @@
         state: directory
         mode: "0755"
       loop: "{{ repertoires }}"
+
     - name: Deposer le fichier de configuration
       ansible.builtin.copy:
         content: |
@@ -25,10 +27,10 @@
         dest: "{{ base }}/config/app.conf"
         mode: "0644"
       notify: Signaler le changement
+
     - name: Horodater le demarrage
       ansible.builtin.shell: date >> {{ base }}/journaux/demarrage.log
-      args:
-        creates: "{{ base }}/journaux/demarrage.log"
+
   handlers:
     - name: Signaler le changement
       ansible.builtin.debug:
