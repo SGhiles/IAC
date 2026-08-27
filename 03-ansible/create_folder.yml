@@ -1,0 +1,13 @@
+---
+- name: Create folder
+  hosts: local
+  tasks:
+    - name: Create folder
+      ansible.builtin.file:
+        state: directory
+        mode: "0755"
+        path: "../{{ item }}"
+      loop:
+        - test_1
+        - test_2
+        - test_3
