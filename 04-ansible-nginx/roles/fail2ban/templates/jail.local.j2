@@ -1,0 +1,7 @@
+# Fichier genere par Ansible - ne pas modifier a la main
+[sshd]
+enabled = true
+port    = ssh
+bantime  = {{ fail2ban_bantime }}
+findtime = {{ fail2ban_findtime }}
+maxretry = {{ fail2ban_maxretry }}

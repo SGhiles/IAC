@@ -1,0 +1,6 @@
+---
+nginx_port: 80
+nginx_server_name: "_"
+nginx_root: /usr/share/nginx/html
+nginx_page_title: "Mon site Ansible - Ghiles"
+nginx_page_heading: "Serveur nginx configure avec Ansible"

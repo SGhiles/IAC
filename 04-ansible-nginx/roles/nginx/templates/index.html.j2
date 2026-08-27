@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ nginx_page_title }}</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #1e1e2f;
+      color: #f0f0f0;
+      text-align: center;
+      padding-top: 80px;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    #compteur {
+      font-size: 32px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>{{ nginx_page_heading }}</h1>
+  <p>Devoir Ansible<br>Compteur de clic :</p>
+
+  <button onclick="incrementer()">Cliquez ici</button>
+  <div id="compteur">0</div>
+
+  <script>
+    let compte = 0;
+    function incrementer() {
+      compte++;
+      document.getElementById('compteur').innerText = compte;
+    }
+  </script>
+</body>
+</html>

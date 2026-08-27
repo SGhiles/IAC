@@ -1,0 +1,7 @@
+---
+- name: Configurer nginx pour servir la page web - Ghiles
+  hosts: local
+  become: true
+  roles:
+    - nginx
+    - fail2ban

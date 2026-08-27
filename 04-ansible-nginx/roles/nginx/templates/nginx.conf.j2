@@ -1,0 +1,11 @@
+# Fichier genere par Ansible - ne pas modifier a la main
+server {
+    listen {{ nginx_port }};
+    server_name {{ nginx_server_name }};
+    root {{ nginx_root }};
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
