@@ -1,6 +1,6 @@
 ---
 - name: Configurer nginx pour servir la page web - Ghiles
-  hosts: local
+  hosts: web
   become: true
   roles:
     - nginx

@@ -1,37 +1,13 @@
 ---
-- name: Preparer un espace de travail - Ghiles - IPSSI
+- name: Create folder
   hosts: local
-  gather_facts: true
-  vars:
-    base: /tmp/tp22_ghiles
-    repertoires:
-      - config
-      - donnees
-      - journaux
-
   tasks:
-    - name: Creer l'arborescence
+    - name: Create folder
       ansible.builtin.file:
-        path: "{{ base }}/{{ item }}"
         state: directory
         mode: "0755"
-      loop: "{{ repertoires }}"
-
-    - name: Deposer le fichier de configuration
-      ansible.builtin.copy:
-        content: |
-          etudiant=Ghiles
-          ecole=IPSSI
-          environnement=formation
-          version=1.0
-        dest: "{{ base }}/config/app.conf"
-        mode: "0644"
-      notify: Signaler le changement
-
-    - name: Horodater le demarrage
-      ansible.builtin.shell: date >> {{ base }}/journaux/demarrage.log
-
-  handlers:
-    - name: Signaler le changement
-      ansible.builtin.debug:
-        msg: "Configuration mise a jour par Ghiles (IPSSI)."
+        path: "../{{ item }}"
+      loop:
+        - test_1
+        - test_2
+        - test_3
